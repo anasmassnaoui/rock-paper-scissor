@@ -1,0 +1,19 @@
+
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: #161616;
+    justify-content: center;
+    padding: 8px 0px;
+    gap: 50px;
+}
+
+.text {
+    font-size: 15px;
+    font-weight: bold;
+    color: #ceae7c;
+}
+
+.text_primary {
+    color: #ffffff;
+}

@@ -1,0 +1,62 @@
+
+.container {
+    background-color: #424242;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.winningBetText {
+    color: #19c359;
+    font-size: 45px;
+    font-weight: bold;
+}
+
+.gainText {
+    color: #d4b37f;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.gainAmountText {
+    color: #FFFFFF;
+}
+
+.betText {
+    color: #FFFFFF;
+    font-size: 33px;
+    font-weight: bold;
+}
+
+.betComparatorText {
+    color: #d4b37f;
+    font-size: 33px;
+    margin: auto 70px;
+}
+
+.generatedBet {
+    color: #FFFFFF;
+    font-size: 38px;
+    font-weight: bold;
+}
+
+.noteText {
+    color: #d4b37f;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: auto;
+}

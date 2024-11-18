@@ -1,0 +1,22 @@
+.container {
+    border-radius: 360px;
+    border: 4px #225eff solid;
+    width: 30px;
+    height: 30px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    color: #090909;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+
+    white-space: nowrap;
+    width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
