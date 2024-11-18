@@ -1,7 +1,7 @@
 {
   "name": "rock-paper-scissors",
   "version": "0.1.0",
-  "homepage": "https://anasmassnaoui.github.io/rock-paper-scissor",
+  "homepage": "https://anasmassnaoui.github.io/rock-paper-scissors",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
