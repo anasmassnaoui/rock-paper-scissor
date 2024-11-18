@@ -1,6 +1,7 @@
 {
   "name": "rock-paper-scissor",
   "version": "0.1.0",
+  "homepage": "https://anasmassnaoui.github.io/rock-paper-scissor",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^2.3.0",
@@ -19,13 +20,16 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "@babel/plugin-transform-private-property-in-object": "^7.23.4"
+    "@babel/plugin-transform-private-property-in-object": "^7.23.4",
+    "gh-pages": "^6.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
