@@ -22,8 +22,15 @@ export const game = createSlice({
         generateComputerChoice: (state: Draft<GameState>) => {
             state.status = 'COMPUTER_CHOICE';
             const choices: BetType[] = ['PAPER', 'ROCK', 'SCISSORS'];
-            const rand = Math.floor(Math.random() * choices.length);
-            state.computerChoice = choices[rand];
+            for (;;) {
+                const rand = Math.floor(Math.random() * choices.length);
+                const choice = choices[rand];
+                if (choice !== state.computerChoice) {
+                    state.computerChoice = choice;
+                    break
+                }
+
+            }
             state.numberOfRandomChoices += 1;
         },
         matchBets: (state: Draft<GameState>) => {

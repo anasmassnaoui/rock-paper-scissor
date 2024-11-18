@@ -1,8 +1,9 @@
 import { createSlice, Draft, PayloadAction } from "@reduxjs/toolkit";
 import { AccountState } from "../shared/types";
+import config from "../config";
 
 const initialState: AccountState = {
-  balance: 5000,
+  balance: config.INITIAL_BALANCE,
   win: 0
 }
 
@@ -17,7 +18,7 @@ export const account = createSlice({
     addWinBalance: (state: Draft<AccountState>, action: PayloadAction<number>) => {
       const amount = action.payload;
       state.balance += amount > 0 ? amount : 0;
-      state.win += amount;
+      state.win = (state.balance - config.INITIAL_BALANCE);
     },
   },
 })

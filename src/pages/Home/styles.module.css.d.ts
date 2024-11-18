@@ -3,6 +3,8 @@ declare const styles: {
     readonly content: string;
     readonly section: string;
     readonly winningBetText: string;
+    readonly losingBetText: string;
+    readonly tieBetText: string;
     readonly gainText: string;
     readonly gainAmountText: string;
     readonly betText: string;

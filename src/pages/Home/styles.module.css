@@ -26,6 +26,14 @@
     font-weight: bold;
 }
 
+.losingBetText {
+    color: #e31642;
+}
+
+.tieBetText {
+    color: #FFFFFF;
+}
+
 .gainText {
     color: #d4b37f;
     font-size: 20px;

@@ -7,13 +7,13 @@ import store, { AppState } from "../../store";
 import { addBet, calculateResult, clearBets, generateComputerChoice, matchBets } from "../../store/game";
 import { calculateBetsResults, canPlayerBet, getBestBet, hasWinnerBet } from "../../utils/gameUtils";
 import { addWinBalance, addBetBalance } from "../../store/account";
+import config from "../../config";
+import { classes } from "../../utils/cssUtils";
 
 type HomeProps = {
     account: AccountState,
     game: GameState
 }
-
-const BET_AMOUNT = 500;
 
 class Home extends Component<HomeProps> {
     constructor(props: HomeProps) {
@@ -25,29 +25,28 @@ class Home extends Component<HomeProps> {
 
     handleBets(bet: BetType) {
         const { account, game } = this.props
-        if (account.balance >= BET_AMOUNT && canPlayerBet(game.bets, bet)) {
-            store.dispatch(addBet({ bet, amount: BET_AMOUNT }));
-            store.dispatch(addBetBalance(BET_AMOUNT))
+        if (account.balance >= config.BET_AMOUNT && canPlayerBet(game.bets, bet)) {
+            store.dispatch(addBet({ bet, amount: config.BET_AMOUNT }));
+            store.dispatch(addBetBalance(config.BET_AMOUNT))
         }
     }
 
     generateComputerChoice() {
         const { game } = this.props
-        if (game.numberOfRandomChoices < 40) {
+        if (game.numberOfRandomChoices < config.MAX_NUMBER_OF_RANDOM_CHOICES) {
             store.dispatch(generateComputerChoice())
-            setTimeout(() => this.generateComputerChoice(), 100);
+            setTimeout(() => this.generateComputerChoice(), 150);
         } else {
-            setTimeout(() => store.dispatch(matchBets()), 500);
-            setTimeout(() => this.calculateResult(), 2000)
+            setTimeout(() => store.dispatch(matchBets()), 1000);
+            setTimeout(() => this.calculateResult(), 2500)
         }
     }
 
     calculateResult() {
         const { game } = this.props
         const results = calculateBetsResults(game.bets, game.computerChoice);
-        console.log(results, game.bets)
         store.dispatch(calculateResult(results))
-        store.dispatch(addWinBalance(results.win - results.lose))
+        store.dispatch(addWinBalance(results.win))
     }
 
     getBestBet() {
@@ -80,7 +79,7 @@ class Home extends Component<HomeProps> {
                         {status === 'COMPARE' && <p className={styles.betText}>{this.getBestBet()}<span className={styles.betComparatorText}>vs</span>{game.computerChoice}</p>}
                         {status === 'RESULT' &&
                             <Fragment>
-                                <p className={styles.winningBetText}>{game.winningBet !== 'TIE' ? (game.winningBet + " WON") : "IT'S A TIE"}</p>
+                                <p className={classes(styles.winningBetText, game.lose > 0 && styles.losingBetText, (game.winningBet === 'TIE' && game.lose === 0) && styles.tieBetText)}>{game.winningBet !== 'TIE' ? (game.winningBet + " WON") : "IT'S A TIE"}</p>
                                 <p className={styles.gainText}>{game.win > 0 ? 'YOU WIN ' : 'YOU LOSE'} <span className={styles.gainAmountText}>{game.win > 0 ? game.win : game.lose}</span></p>
                             </Fragment>
                         }

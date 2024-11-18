@@ -1,3 +1,4 @@
+import config from "../config";
 import { BetResults, BetType, PlayerBets, WinnerBet } from "../shared/types";
 
 export function compareBets(bet1: BetType, bet2: BetType) {
@@ -29,7 +30,7 @@ export function calculateBetsResults(playerBets: PlayerBets, computerBet: BetTyp
             results.lose = 0;
             results.winningBet = 'TIE';
         } else if (result > 0) {
-            results.win = (playerBets[playerBet] || 0) * 14;
+            results.win = (playerBets[playerBet] || 0) * config.WININNG_RATE[0];
             results.lose = 0;
             results.winningBet = playerBet;
         } else {
@@ -41,11 +42,11 @@ export function calculateBetsResults(playerBets: PlayerBets, computerBet: BetTyp
         const playerBet1 = bets[0];
         const playerBet2 = bets[1];
         if (compareBets(playerBet1, computerBet) > 0) {
-            results.win = (playerBets[playerBet1] || 0) * 14;
+            results.win = (playerBets[playerBet1] || 0) * config.WININNG_RATE[0];
             results.lose = 0;
             results.winningBet = playerBet1;
         } else if (compareBets(playerBet2, computerBet) > 0) {
-            results.win = (playerBets[playerBet2] || 0) * 3;
+            results.win = (playerBets[playerBet2] || 0) * config.WININNG_RATE[1];
             results.lose = 0;
             results.winningBet = playerBet2;
         } else {
