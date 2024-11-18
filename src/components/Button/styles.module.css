@@ -1,0 +1,26 @@
+
+.container {
+    border: 2px #b19b73 solid;
+    background-color: #070707;
+    display: inline-block;
+    padding: 20px 50px;
+    border-radius: 40px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.container:active {
+    scale: 0.98;
+}
+
+.text {
+    color: #d4b37f;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+

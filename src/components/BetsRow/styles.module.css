@@ -1,0 +1,43 @@
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card_blue {
+    border-color: #2d4b94;
+    background-color: #211f4f;
+    color: #2680ea;
+}
+
+.card_green {
+    border-color: #197e3b;
+    background-color: #1a381d;
+    color: #19c359;
+}
+
+.card_red {
+    border-color: #9a0f30;
+    background-color: #50091e;
+    color: #e31642;
+}
+
+.card_win_blue {
+    border-width: 4px;
+    border-color: #2680ea;
+    margin: 0px;
+}
+
+.card_win_green {
+    border-width: 4px;
+    border-color: #19c359;
+    margin: 0px;
+}
+
+.card_win_red {
+    border-width: 4px;
+    border-color: #e31642;
+    margin: 0px;
+}
